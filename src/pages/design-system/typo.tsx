@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 
-function typo() {
+function TypoPage() {
   return (
     <Box pl="4rem">
       <Text variant="logo" mb="2rem">
@@ -28,4 +28,4 @@ function typo() {
   );
 }
 
-export default typo;
+export default TypoPage;

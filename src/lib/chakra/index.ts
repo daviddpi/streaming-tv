@@ -1,7 +1,7 @@
 import { fonts, colors, text } from "./theme";
 import { extendTheme } from "@chakra-ui/react";
 
-import { Text, Icon } from "./components";
+import { Text, Icon, Button } from "./components";
 
 export const theme = extendTheme({
   fonts,
@@ -11,6 +11,7 @@ export const theme = extendTheme({
   components: {
     Text,
     Icon,
+    Button
   },
 
   styles: {

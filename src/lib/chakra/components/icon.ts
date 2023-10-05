@@ -7,18 +7,18 @@ export const Icon = defineStyleConfig({
     justifyContent: "center",
   },
   sizes: {
-    small: {
+    sm: {
       w: "1.6rem",
       h: "1.6rem",
     },
-    normal: {
+    md: {
       w: "2.8rem",
       h: "2.8rem",
     },
-    large: {
+    lg: {
       w: "3.5rem",
       h: "3.5rem",
     },
   },
-  defaultProps: { size: "normal" },
+  defaultProps: { size: "md" },
 });

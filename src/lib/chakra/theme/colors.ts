@@ -1,7 +1,14 @@
 export const colors = {
     background: "#0D1821",
-    primary: "#5762D5",
-    secondary: "#f0ebf7",
+    primary: {
+        default: "#5762D5",
+        hover: "#6771d6",
+        active: "rgba(103, 113, 214, 0.8)"
+    },
+    secondary: {
+        default: "rgba(240, 235, 247, 0.8)",
+        hover: "rgba(240, 235, 247, 0.2)"
+    },
     tertiary: "#625e65",
     white: "#ffffff",
     black: "#000000",

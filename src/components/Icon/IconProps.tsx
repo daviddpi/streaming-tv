@@ -1,6 +1,8 @@
 import { ChakraProps, ThemingProps } from "@chakra-ui/react";
 
-type name =
+export type IconSize = "sm" | "md" | "lg";
+
+export type IconName =
   | "play"
   | "info"
   | "ring"
@@ -10,6 +12,7 @@ type name =
   | "search"
   | "arrow";
 
-export interface IconProps extends ChakraProps, ThemingProps  {
-  name: name;
+export interface IconProps extends ChakraProps, ThemingProps {
+  name: IconName;
+  size?: IconSize;
 }

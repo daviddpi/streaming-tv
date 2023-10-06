@@ -10,7 +10,8 @@ export type IconName =
   | "emptyStar"
   | "halfStar"
   | "search"
-  | "arrow";
+  | "arrow"
+  | "close";
 
 export interface IconProps extends ChakraProps, ThemingProps {
   name: IconName;

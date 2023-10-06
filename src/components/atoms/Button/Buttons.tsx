@@ -1,9 +1,9 @@
 import { chakra, forwardRef, useStyleConfig, Text } from "@chakra-ui/react";
 import { ButtonProps } from "./ButtonProps";
-import { Icon } from "@/components/Icon/Icon";
+import { Icon } from "@/components/atoms/Icon/Icon";
 import Link from "next/link";
 
-export const Button = forwardRef<ButtonProps, "button">((props) => {
+export const Button = forwardRef<ButtonProps, "button">((props, ref) => {
   const {
     label,
     icon,
@@ -19,7 +19,7 @@ export const Button = forwardRef<ButtonProps, "button">((props) => {
 
   const style = useStyleConfig("Button", { variant });
 
-  const shared = { __css: style ,...rest };
+  const shared = { __css: style, ref, ...rest };
 
   return (
     <chakra.button
@@ -32,7 +32,7 @@ export const Button = forwardRef<ButtonProps, "button">((props) => {
     >
       {iconLeft && icon && !iconRight && <Icon name={icon} size={iconSize} />}
       {label && (
-        <Text variant={tag !== 'link' ? 'button' : 'body1'} as="span">
+        <Text variant={tag !== "link" ? "button" : "body1"} as="span">
           {label}
         </Text>
       )}

@@ -17,6 +17,7 @@ export const Input = defineMultiStyleConfig({
       color: "white",
       borderRadius: "0.8rem",
       outline: "0",
+      border: "1px solid"
     },
     element: {
       top: "auto",

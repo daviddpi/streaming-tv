@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { Icon } from "@/components/atoms/Icon/Icon";
 import { InputProps } from "./InputProps";
-import { useEffect, useRef, useState } from "react";
-// import useOutsideClick from "@/hook/useOutsideClick";
+import { useRef, useState } from "react";
+import { useOutsideClick } from "@chakra-ui/react";
 
 export const Input = forwardRef<InputProps, "input">(function Input(
   props,
@@ -37,28 +37,19 @@ export const Input = forwardRef<InputProps, "input">(function Input(
   const [open, setOpen] = useState(animate ? false : true);
   const inputRef = useRef(null);
 
-  useEffect(() => {
-    function handleClick(e: Event) {
-      const target = e.target as HTMLElement;
-      if (inputRef.current) {
-        if (!(inputRef.current as HTMLElement).contains(target)) {
-          setOpen(false);
-        } else {
-          const input = (inputRef.current as HTMLInputElement)
-            .childNodes[1] as HTMLInputElement;
-          setOpen(true);
-          setTimeout(() => {
-            input.click();
-            input.focus();
-          }, 100);
-        }
-      }
+  useOutsideClick({
+    ref: inputRef,
+    handler: () => setOpen(false),
+  });
+
+  const handleOpenInput = () => {
+    setOpen(true);
+    if (inputRef.current) {
+      const input = (inputRef.current as HTMLInputElement)
+        .childNodes[1] as HTMLInputElement;
+      input.focus();
     }
-    document.addEventListener("mousedown", handleClick);
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, [inputRef, open]);
+  };
 
   return (
     <InputGroup
@@ -76,7 +67,7 @@ export const Input = forwardRef<InputProps, "input">(function Input(
         >
           <Icon
             cursor="pointer"
-            onClick={() => setOpen(true)}
+            onClick={handleOpenInput}
             name={leftIconElement}
             size={leftIconElementSize}
             color={leftIconColor}
@@ -84,8 +75,12 @@ export const Input = forwardRef<InputProps, "input">(function Input(
         </InputLeftElement>
       )}
       <chakra.input
-        pointerEvents={open ? "auto" : "none"}
-        border={open ? "1px solid" : "1px solid transparent"}
+        {...(animate &&
+          (open ? { PointerEvent: "auto" } : { pointerEvents: "none" }))}
+        {...(animate &&
+          (open
+            ? { border: "1px solid" }
+            : { border: "1px solid transparent" }))}
         transition="all 0.4s ease"
         placeholder={open ? placeholder : ""}
         {...input}

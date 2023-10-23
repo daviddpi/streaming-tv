@@ -1,5 +1,5 @@
-import { Icons } from "@/components/Icons";
-import { IconProps } from "@/components/Icon/IconProps";
+import { Icons } from "@/components/atoms/Icons";
+import { IconProps } from "@/components/atoms/Icon/IconProps";
 import { chakra, forwardRef, useStyleConfig } from "@chakra-ui/react";
 
 export const Icon = forwardRef<IconProps, "svg">((props) => {

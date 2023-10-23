@@ -1,6 +1,6 @@
 import { chakra, forwardRef, useStyleConfig, Text } from "@chakra-ui/react";
 import { ButtonProps } from "./ButtonProps";
-import { Icon } from "@/components/Icon/Icon";
+import { Icon } from "@/components/atoms/Icon/Icon";
 import Link from "next/link";
 
 export const Button = forwardRef<ButtonProps, "button">((props) => {

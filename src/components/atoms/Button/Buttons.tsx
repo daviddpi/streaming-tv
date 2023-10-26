@@ -3,7 +3,7 @@ import { ButtonProps } from "./ButtonProps";
 import { Icon } from "@/components/atoms/Icon/Icon";
 import Link from "next/link";
 
-export const Button = forwardRef<ButtonProps, "button">((props) => {
+export const Button = forwardRef<ButtonProps, "button">((props, ref) => {
   const {
     label,
     icon,
@@ -19,7 +19,7 @@ export const Button = forwardRef<ButtonProps, "button">((props) => {
 
   const style = useStyleConfig("Button", { variant });
 
-  const shared = { __css: style, ...rest };
+  const shared = { __css: style, ref, ...rest };
 
   return (
     <chakra.button

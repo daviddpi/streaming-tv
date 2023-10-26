@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import Icon from "@/components/Icon/Icon";
+import Icon from "@/components/atoms/Icon/Icon";
 
 function IconsPage() {
   return (

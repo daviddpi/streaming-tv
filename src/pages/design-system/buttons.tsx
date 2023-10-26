@@ -1,4 +1,4 @@
-import Button from "@/components/Button/Buttons";
+import Button from "@/components/atoms/Button/Buttons";
 import { Flex } from "@chakra-ui/react";
 
 function ButtonsPage() {

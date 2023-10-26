@@ -1,0 +1,18 @@
+.embla {
+  overflow: hidden;
+  color: white;
+  height: 100%;
+}
+
+.embla__container {
+  display: flex;
+  gap: 2.4rem;
+  height: inherit;
+}
+
+.embla__container > * {
+  height: inherit;
+  flex: 0 0 auto;
+  min-width: 0;
+  user-select: none;
+}

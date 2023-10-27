@@ -15,16 +15,18 @@ export const Card = defineMultiStyleConfig({
   sizes: {
     base: definePartsStyle({
       container: defineStyle({
-        w: "26.2rem",
-        h: "39.3rem",
+        w: "20.2rem",
+        h: "33.3rem",
         p: "2.7rem",
       }),
     }),
   },
 
   variants: {
-    vertical: definePartsStyle({
+    animate: definePartsStyle({
       container: defineStyle({
+        minW: "20.2rem",
+        minH: "33.3rem",
         transition: "all 0.3s ease",
         bg: "black",
         backgroundPosition: "center",
@@ -76,6 +78,34 @@ export const Card = defineMultiStyleConfig({
         },
       }),
     }),
+    vertical: definePartsStyle({
+      container: defineStyle({
+        minW: "20.2rem",
+        minH: "33.3rem",
+      }),
+      ".overlay": {
+        w: "100%",
+        h: "100%",
+        bg: "transparent",
+        transition: "all 0.3s ease",
+        pos: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 0,
+      },
+      ".buttons": {
+        pos: "relative",
+        zIndex: 1,
+        transition: "all 0.3s ease",
+        transform: "translateY(300%)",
+      },
+      h2: {
+        transform: "translateY(-300%)",
+        transition: "all 0.3s ease",
+      },
+    }),
     horizontal: definePartsStyle({
       container: defineStyle({
         bg: "black",
@@ -87,6 +117,6 @@ export const Card = defineMultiStyleConfig({
 
   defaultProps: {
     size: "base",
-    variant: "vertical",
+    variant: "animate",
   },
 });

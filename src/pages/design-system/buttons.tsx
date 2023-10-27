@@ -8,7 +8,7 @@ function ButtonsPage() {
       alignItems="start"
       p="4rem"
       gap="2rem"
-      bg="lightgray"
+      bg="background"
     >
       <Button label="Button" />
       <Button

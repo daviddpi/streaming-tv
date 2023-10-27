@@ -3,7 +3,7 @@ import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
 export const Carousel = defineStyleConfig({
   baseStyle: defineStyle({
     overflow: "hidden",
-    h: "100%",
+    h: "max-content",
     ".embla-container": {
       display: "flex",
       gap: "2.4rem",
@@ -13,7 +13,8 @@ export const Carousel = defineStyleConfig({
   variants: {
     primary: {
       overflow: "hidden",
-      h: "100%",
+      h: "max-content",
+      pos: "relative",
       ".embla-container": {
         display: "flex",
         gap: "2.4rem",

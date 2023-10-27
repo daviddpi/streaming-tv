@@ -1,5 +1,6 @@
+import { Card } from "@/components/atoms/Card/Card";
 import Carousel from "@/components/molecules/Carousel/Carousel";
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { EmblaOptionsType } from "embla-carousel-react";
 
 const OPTIONS: EmblaOptionsType = {
@@ -10,23 +11,15 @@ const OPTIONS: EmblaOptionsType = {
 function CarouselPage() {
   return (
     <>
-      <Box h="50rem" p="4rem" bg="darkblue">
+      <Box h="50rem" p="4rem" bg="background">
         <Carousel options={OPTIONS}>
           {[...Array(25)].map((x, i) => (
-            <Box
-              h="100%"
-              w="375px"
-              bg="black"
-              borderRadius="0.8rem"
-              border="2px solid black"
-              color="white"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
+            <Card
               key={i}
-            >
-              <Text variant="h2">Slide {i}</Text>
-            </Box>
+              title="Fast X"
+              duration="2h 21m"
+              cover="https://image.tmdb.org/t/p/w400/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
+            />
           ))}
         </Carousel>
       </Box>

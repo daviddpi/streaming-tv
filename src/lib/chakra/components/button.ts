@@ -49,7 +49,10 @@ export const Button = defineStyleConfig({
       border: "1px solid",
       borderColor: "primary.default",
       color: "primary.default",
-      bg: "transparent",
+      bg: "rgba(0,0,0,0.5)",
+      backdropFilter: {
+        blur: "2rem",
+      },
       _hover: {
         color: "white",
         bg: "primary.default",

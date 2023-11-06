@@ -9,7 +9,7 @@ import { SelectProps } from "./SelectProps";
 import Button from "../Button/Buttons";
 
 export const Select = (props: SelectProps) => {
-  const { options, ...rest } = props;
+  const { label, options, fs, ...rest } = props;
 
   const styles = useMultiStyleConfig("Select", { props });
 
@@ -21,7 +21,7 @@ export const Select = (props: SelectProps) => {
         <>
           <MenuButton
             isActive={isOpen}
-            label="Generi"
+            label={label}
             as={Button}
             variant="linkSecondary"
             icon="arrow"
@@ -30,7 +30,13 @@ export const Select = (props: SelectProps) => {
           />
           <MenuList {...shared}>
             {options.map((opt, i) => (
-              <MenuItem key={i}>{opt}</MenuItem>
+              <MenuItem
+                value={opt.value}
+                key={i}
+                onClick={() => fs && fs(opt.value)}
+              >
+                {opt.label}
+              </MenuItem>
             ))}
           </MenuList>
         </>

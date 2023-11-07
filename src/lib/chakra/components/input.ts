@@ -33,7 +33,7 @@ export const Input = defineMultiStyleConfig({
         w: "100%",
         h: "100%",
         p: "0.7rem",
-        pl: "3rem",
+        pl: "4rem",
         fontSize: text.body1.fontSize,
       }),
     }),

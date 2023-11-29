@@ -10,4 +10,5 @@ export interface ButtonProps extends ChakraProps, ThemingProps {
   tag?: "button" | "link";
   href?: string;
   external?: boolean;
+  isActive?: boolean;
 }

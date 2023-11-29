@@ -62,6 +62,7 @@ export const Card = defineMultiStyleConfig({
           transition: "all 0.45s ease",
         },
         _hover: {
+          transform: "scale(1.02)",
           ".overlay": {
             bg: "background",
             opacity: "0.4",

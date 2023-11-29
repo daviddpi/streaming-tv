@@ -13,6 +13,7 @@ export const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     tag = "button",
     href,
     external,
+    isActive,
     variant,
     ...rest
   } = props;
@@ -30,13 +31,31 @@ export const Button = forwardRef<ButtonProps, "button">((props, ref) => {
         target: external ? "_blank" : "",
       })}
     >
-      {iconLeft && icon && !iconRight && <Icon name={icon} size={iconSize} />}
+      {iconLeft && icon && !iconRight && (
+        <Icon
+          name={icon}
+          size={iconSize}
+          {...(isActive && {
+            transform: "rotate(180deg)",
+            transition: "transform 0.3s ease",
+          })}
+        />
+      )}
       {label && (
         <Text variant={tag !== "link" ? "button" : "body2"} as="span">
           {label}
         </Text>
       )}
-      {iconRight && icon && <Icon name={icon} size={iconSize} />}
+      {iconRight && icon && (
+        <Icon
+          name={icon}
+          size={iconSize}
+          {...(isActive && {
+            transform: "rotate(180deg)",
+            transition: "transform 0.3s ease",
+          })}
+        />
+      )}
     </chakra.button>
   );
 });

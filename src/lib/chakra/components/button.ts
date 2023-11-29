@@ -40,9 +40,10 @@ export const Button = defineStyleConfig({
       bg: "secondary.default",
       _hover: {
         bg: "secondary.hover",
+        color: "white"
       },
       _active: {
-        bg: "secondary.default",
+        bg: "secondary.active",
       },
     },
     tertiary: {

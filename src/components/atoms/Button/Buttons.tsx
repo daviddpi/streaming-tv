@@ -32,7 +32,7 @@ export const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     >
       {iconLeft && icon && !iconRight && <Icon name={icon} size={iconSize} />}
       {label && (
-        <Text variant={tag !== "link" ? "button" : "body1"} as="span">
+        <Text variant={tag !== "link" ? "button" : "body2"} as="span">
           {label}
         </Text>
       )}

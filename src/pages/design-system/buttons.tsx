@@ -18,8 +18,18 @@ function ButtonsPage() {
         iconSize="md"
         variant="primary"
       />
+      <Button
+        color="white"
+        icon="play"
+        iconSize="sm"
+        variant="primaryRounded"
+      />
       <Button label="Button Icon" icon="info" variant="secondary" />
+      <Button icon="info" iconSize="sm" variant="secondaryRounded" />
+
       <Button label="Button Icon" icon="ring" iconRight variant="tertiary" />
+      <Button icon="ring" iconSize="sm" iconRight variant="tertiaryRounded" />
+
       <Button icon="search" iconSize="lg" variant="icon" />
       <Button
         variant="linkPrimary"

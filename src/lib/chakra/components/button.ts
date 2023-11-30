@@ -4,18 +4,80 @@ const baseLink = {
   p: 0,
   border: "none",
   _hover: {
-    TextDecoder: "none",
+    color: "tertiary",
+  },
+};
+
+const baseButton = {
+  borderRadius: "0.8rem",
+  textDecoration: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "0.9rem",
+};
+
+const buttonVariants = {
+  primary: {
+    color: "inherit",
+    bg: "primary.default",
+    _hover: {
+      bg: "primary.hover",
+    },
+    _active: {
+      bg: "primary.active",
+    },
+  },
+  secondary: {
+    color: "inherit",
+    bg: "secondary.default",
+    _hover: {
+      bg: "secondary.hover",
+      color: "white",
+    },
+    _active: {
+      bg: "secondary.active",
+    },
+  },
+  tertiary: {
+    border: "1px solid",
+    borderColor: "primary.default",
+    color: "primary.default",
+    bg: "rgba(0,0,0,0.5)",
+    backdropFilter: {
+      blur: "2rem",
+    },
+    _hover: {
+      color: "white",
+      bg: "primary.default",
+    },
+    _active: {
+      bg: "primary.active",
+    },
+  },
+  icon: {
+    p: 0,
+    color: "black",
+    _hover: {
+      color: "tertiary",
+    },
+  },
+  linkPrimary: {
+    ...baseLink,
+    color: "black",
+  },
+  linkSecondary: {
+    ...baseLink,
+    color: "white",
+    _hover: {
+      color: "secondary.default",
+    },
   },
 };
 
 export const Button = defineStyleConfig({
   baseStyle: defineStyle({
-    borderRadius: "0.8rem",
-    textDecoration: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "0.9rem",
+    ...baseButton,
   }),
   sizes: {
     base: {
@@ -26,65 +88,42 @@ export const Button = defineStyleConfig({
   },
   variants: {
     primary: {
-      color: "inherit",
-      bg: "primary.default",
-      _hover: {
-        bg: "primary.hover",
-      },
-      _active: {
-        bg: "primary.active",
-      },
+      ...buttonVariants.primary,
+    },
+    primaryRounded: {
+      ...buttonVariants.primary,
+      borderRadius: 'full',
+      p: "1.3rem",
     },
     secondary: {
-      color: "inherit",
-      bg: "secondary.default",
-      _hover: {
-        bg: "secondary.hover",
-        color: "white"
-      },
-      _active: {
-        bg: "secondary.active",
-      },
+      ...buttonVariants.secondary,
+    },
+    secondaryRounded: {
+      ...buttonVariants.secondary,
+      borderRadius: 'full',
+      p: "1.3rem",
     },
     tertiary: {
-      border: "1px solid",
-      borderColor: "primary.default",
-      color: "primary.default",
-      bg: "rgba(0,0,0,0.5)",
-      backdropFilter: {
-        blur: "2rem",
-      },
-      _hover: {
-        color: "white",
-        bg: "primary.default",
-      },
-      _active: {
-        bg: "primary.active",
-      },
+      ...buttonVariants.tertiary,
+    },
+    tertiaryRounded: {
+      ...buttonVariants.tertiary,
+      borderRadius: 'full',
+      p: "1.3rem",
     },
     icon: {
-      p: 0,
-      color: "black",
-      _hover: {
-        color: "tertiary",
-      },
+      ...buttonVariants.icon,
     },
     linkPrimary: {
-      ...baseLink,
-      color: "black",
+      ...buttonVariants.linkPrimary,
       _hover: {
-        color: "tertiary",
+        ...buttonVariants.linkPrimary._hover,
       },
     },
     linkSecondary: {
-      ...baseLink,
-      color: "white",
-      _hover: {
-        color: "secondary.default",
-      },
+      ...buttonVariants.linkSecondary,
     },
   },
-
   defaultProps: {
     variant: "tertiary",
     size: "base",

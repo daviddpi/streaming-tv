@@ -1,31 +1,41 @@
-import { Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { Container, Flex, Heading, Text, forwardRef } from "@chakra-ui/react";
 import { HeaderProps } from "./HeaderProps";
 import Button from "@/components/atoms/Button/Buttons";
 import { Input } from "@/components/atoms/Input/Input";
 import Link from "next/link";
+import { useMediaQueries } from "@/hook/useMediaQueries";
 
-export const Header = (props: HeaderProps) => {
+export const Header = forwardRef((props: HeaderProps, ref) => {
   const { links, ...rest } = props;
+
+  const { isMobile, isTablet } = useMediaQueries();
 
   return (
     <Container
+      ref={ref}
       backdropFilter="blur(.15rem)"
       backgroundImage="linear-gradient(180deg,rgba(25, 24, 26, .7) 10%,transparent)"
-      p="0.4rem 0"
       as="header"
+      pt="1rem"
       {...rest}
     >
       <Flex justifyContent="space-between" alignItems="center">
-        <Flex gap="4rem">
+        <Flex
+          gap={isMobile || isTablet ? "1.8rem" : "4rem"}
+          flexDirection={isMobile ? "column" : "row"}
+        >
           <Link href="/">
-            <Heading fontSize="4rem" color="white">
+            <Heading
+              fontSize={isMobile || isTablet ? "3.2rem" : "4rem"}
+              color="white"
+            >
               Streaming
               <Text as="sup" color="primary.default">
                 TV
               </Text>
             </Heading>
           </Link>
-          <Flex gap="2rem">
+          <Flex gap={isMobile || isTablet ? "1.8rem" : "2rem"}>
             {links?.map((link, i) => (
               <Button
                 key={i}
@@ -37,7 +47,10 @@ export const Header = (props: HeaderProps) => {
             ))}
           </Flex>
         </Flex>
-        <Flex justifyContent="flex-end" gap="2rem">
+        <Flex
+          justifyContent="flex-end"
+          gap={isMobile || isTablet ? "1.6rem" : "2rem"}
+        >
           <Input
             placeholder="Titoli, Film, Serie Tv"
             leftIconElement="search"
@@ -52,4 +65,4 @@ export const Header = (props: HeaderProps) => {
       </Flex>
     </Container>
   );
-};
+});

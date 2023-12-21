@@ -1,6 +1,5 @@
 import { cardAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers, defineStyle } from "@chakra-ui/react";
-import { relative } from "path";
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(cardAnatomy.keys);
@@ -15,8 +14,11 @@ export const Card = defineMultiStyleConfig({
   sizes: {
     base: definePartsStyle({
       container: defineStyle({
-        w: "20.2rem",
-        h: "33.3rem",
+        p: "0.6rem",
+      }),
+    }),
+    sm: definePartsStyle({
+      container: defineStyle({
         p: "2.7rem",
       }),
     }),
@@ -25,12 +27,13 @@ export const Card = defineMultiStyleConfig({
   variants: {
     animate: definePartsStyle({
       container: defineStyle({
-        minW: "20.2rem",
-        minH: "33.3rem",
+        w: { base: "15rem", md: "20.2rem" },
+        h: { base: "20rem", md: "33.3rem" },
+        p: { base: "0.6rem", md: "2.4rem" },
         transition: "all 0.3s ease",
         bg: "black",
         backgroundPosition: "center",
-        backgroundSize: "cover",
+        backgroundSize: { base: "contain", md: "cover" },
         overflow: "hidden",
         pos: "relative",
         ".overlay": {
@@ -51,14 +54,14 @@ export const Card = defineMultiStyleConfig({
           transition: "all 0.3s ease",
           transform: "translateY(300%)",
         },
-        h2: {
+        ".title": {
           transform: "translateY(-300%)",
           transition: "all 0.3s ease",
         },
         ".duration": {
           pos: "relative",
           zIndex: 1,
-          transform: "translateY(-500%)",
+          transform: "translateY(-800%)",
           transition: "all 0.45s ease",
         },
         _hover: {
@@ -67,7 +70,7 @@ export const Card = defineMultiStyleConfig({
             bg: "background",
             opacity: "0.4",
           },
-          h2: {
+          ".title": {
             transform: "translateY(0%)",
           },
           ".duration": {
@@ -81,8 +84,9 @@ export const Card = defineMultiStyleConfig({
     }),
     vertical: definePartsStyle({
       container: defineStyle({
-        minW: "20.2rem",
-        minH: "33.3rem",
+        w: { base: "15rem", md: "20.2rem" },
+        h: { base: "20rem", md: "33.3rem" },
+        p: { base: "0.6rem", md: "2.4rem" },
       }),
       ".overlay": {
         w: "100%",
@@ -102,7 +106,7 @@ export const Card = defineMultiStyleConfig({
         transition: "all 0.3s ease",
         transform: "translateY(300%)",
       },
-      h2: {
+      ".title": {
         transform: "translateY(-300%)",
         transition: "all 0.3s ease",
       },

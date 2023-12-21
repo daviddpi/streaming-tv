@@ -1,4 +1,4 @@
-import { fonts, colors, text } from "./theme";
+import { fonts, colors, text, breakpoints } from "./theme";
 import { extendTheme } from "@chakra-ui/react";
 
 import { Text, Icon, Button, Carousel, Input, Card, Select, Container } from "./components";
@@ -7,6 +7,7 @@ export const theme = extendTheme({
   fonts,
   colors,
   text,
+  breakpoints,
 
   components: {
     Text,
@@ -15,7 +16,7 @@ export const theme = extendTheme({
     Carousel,
     Card,
     Input,
-    Select
+    Select,
     Container
   },
 

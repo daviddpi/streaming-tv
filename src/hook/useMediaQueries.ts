@@ -10,6 +10,14 @@ export const useMediaQueries = () => {
         ssr: true,
     })
 
+    const [isTabletVertical] = useMediaQuery(`(min-width: ${breakpoints.sm}) and (max-width: ${breakpoints.md})`, {
+        ssr: true,
+    })
+
+    const [isTabletLandscape] = useMediaQuery(`(min-width: ${breakpoints.md}) and (max-width: ${breakpoints.lg})`, {
+        ssr: true,
+    })
+
     const [isDesktop] = useMediaQuery(`(min-width: ${breakpoints.lg})`, {
         ssr: true,
     })
@@ -17,6 +25,8 @@ export const useMediaQueries = () => {
     return {
         isMobile,
         isTablet,
+        isTabletVertical,
+        isTabletLandscape,
         isDesktop
     }
 }

@@ -25,6 +25,9 @@ export const theme = extendTheme({
       html: {
         fontSize: "62.5%",
       },
+      body: {
+        bg: "black"
+      }
     },
   },
 });

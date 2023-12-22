@@ -40,7 +40,13 @@ const Layout = ({ children }: Props) => {
   }, []);
 
   return (
-    <Box background="background" pt={height + "px"} color="white" minH="100vh">
+    <Box
+      id="layout"
+      background="background"
+      pt={height + "px"}
+      color="white"
+      minH="100vh"
+    >
       <Header ref={ref} links={links} pos="fixed" top="0" />
       <main>{children}</main>
     </Box>
